@@ -1,2 +1,8 @@
+.idea/
+.vscode/
 /node_modules/
-/.env/
+build/
+.env
+coverage
+ormconfig.json
+dist
