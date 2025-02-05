@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ProductsControllers from '../controllers/ProductsControllers';
+import ProductsControllers from '../controllers/ProductControllers';
 import {
   createProductSchema,
   idProductsSchema,
