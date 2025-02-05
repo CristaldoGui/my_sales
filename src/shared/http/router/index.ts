@@ -1,4 +1,5 @@
 import productsRouter from '@modules/products/routes/ProductRoutes';
+import userRouter from '@modules/users/routes/UserRoutes';
 import { Router } from 'express';
 import { Request, Response } from 'express';
 
@@ -9,5 +10,6 @@ routes.get('/health', (_req: Request, res: Response) => {
 });
 
 routes.use('/products', productsRouter);
+routes.use('/users', userRouter);
 
 export default routes;
