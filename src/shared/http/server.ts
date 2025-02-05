@@ -1,22 +1,22 @@
 import 'express-async-errors';
 import 'reflect-metadata';
 
-import express from 'express';
+import express, { Application } from 'express';
 import cors from 'cors';
-import router from './router';
+import routes from './router';
 
 import ErrorHandleMiddleware from '@shared/middlewares/ErrorHandleMiddleware';
 import AppDataSource from '@shared/typeorm/data-source';
 
 AppDataSource.initialize()
   .then( async () => {
-    const app = express();
+    const app: Application = express();
 
     app.use(cors());
     app.use(express.json());
 
-    app.use(router);
-    app.use(ErrorHandleMiddleware.handleError);
+    app.use(routes);
+    //app.use(ErrorHandleMiddleware.handleError);
 
     console.log('Data Source has been initialized!');
 

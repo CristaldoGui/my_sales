@@ -1,6 +1,5 @@
 import AppError from '@shared/errors/AppError';
 import { productsRepositories } from '../database/repositories/ProductsRepositories';
-import { Product } from '../database/entities/Product';
 
 interface IDeleteProductService {
   id: string;
