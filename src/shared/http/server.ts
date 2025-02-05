@@ -4,19 +4,21 @@ import 'reflect-metadata';
 import express, { Application } from 'express';
 import cors from 'cors';
 import routes from './router';
+import { errors } from 'celebrate';
 
 import ErrorHandleMiddleware from '@shared/middlewares/ErrorHandleMiddleware';
 import AppDataSource from '@shared/typeorm/data-source';
 
 AppDataSource.initialize()
-  .then( async () => {
+  .then(async () => {
     const app: Application = express();
 
     app.use(cors());
     app.use(express.json());
 
     app.use(routes);
-    //app.use(ErrorHandleMiddleware.handleError);
+    app.use(errors());
+    app.use(ErrorHandleMiddleware.handleError);
 
     console.log('Data Source has been initialized!');
 
