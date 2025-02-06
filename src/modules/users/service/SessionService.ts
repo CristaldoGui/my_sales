@@ -5,7 +5,7 @@ import { User } from '../database/entities/User';
 
 // LIBS
 import { compare } from 'bcrypt';
-import { sign } from 'jsonwebtoken';
+import { Secret, sign } from 'jsonwebtoken';
 import 'dotenv/config';
 
 interface ISessionUserService {
@@ -29,7 +29,7 @@ export default class SessionUserService {
     if (!passwordCompared)
       throw new AppError('Incorrect email/password combination', 401);
 
-    const token = sign({}, process.env.APP_SECRET as string, {
+    const token = sign({}, process.env.APP_SECRET as Secret, {
       subject: user.id.toString(),
       expiresIn: '1d',
     });
