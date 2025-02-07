@@ -1,3 +1,4 @@
+import { url } from 'inspector';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -5,6 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Url } from 'url';
 
 @Entity('users')
 export class User {
@@ -19,6 +21,9 @@ export class User {
 
   @Column({ type: 'text' })
   password: string;
+
+  @Column({ type: 'text' })
+  avatar: string;
 
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
