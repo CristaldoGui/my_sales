@@ -7,9 +7,9 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-Entity('user_tokens');
-export default class UserToken {
-  @PrimaryGeneratedColumn('increment')
+@Entity('user_tokens')
+export default class UserTokens {
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column()

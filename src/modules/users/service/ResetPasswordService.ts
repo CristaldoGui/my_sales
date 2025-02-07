@@ -1,8 +1,8 @@
 import AppError from '@shared/errors/AppError';
-import { userTokensRepositories } from '../database/repositories/UserToeknsRepositories';
+import { userTokensRepositories } from '../database/repositories/UserTokensRepositories';
 import { userRepositories } from '../database/repositories/UsersRepositories';
 import { addMinutes, isAfter } from 'date-fns';
-import { hash } from 'crypto';
+import bcrypt from 'bcrypt';
 
 interface IResetPassword {
   password: string;
@@ -15,7 +15,7 @@ export default class ResetPasswordService {
 
     if (!userToken) throw new AppError('User token not exists', 404);
 
-    const user = await userRepositories.findById(userToken.id);
+    const user = await userRepositories.findById(userToken.user_id);
 
     if (!user) throw new AppError('User not found', 404);
 
@@ -24,7 +24,7 @@ export default class ResetPasswordService {
 
     if (isAfter(Date.now(), compareDate)) throw new AppError('Token expired', 401);
 
-    user.password = await hash(password, '10');
+    user.password = await bcrypt.hash(password, 10);
 
     await userRepositories.save(user);
   }

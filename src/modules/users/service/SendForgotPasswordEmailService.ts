@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
 import { userRepositories } from '../database/repositories/UsersRepositories';
-import { userTokensRepositories } from '../database/repositories/UserToeknsRepositories';
+import { userTokensRepositories } from '../database/repositories/UserTokensRepositories';
 
 interface ISendForgotPasswordEmail {
   email: string;
