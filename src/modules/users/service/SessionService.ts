@@ -1,6 +1,6 @@
 // MODULES
 import AppError from '@shared/errors/AppError';
-import { userRepositories } from '../database/UsersRepositories';
+import { userRepositories } from '../database/repositories/UsersRepositories';
 import { User } from '../database/entities/User';
 
 // LIBS

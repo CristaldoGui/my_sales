@@ -1,5 +1,5 @@
 import AppError from '@shared/errors/AppError';
-import { userRepositories } from '../database/UsersRepositories';
+import { userRepositories } from '../database/repositories/UsersRepositories';
 import uploadFolder from '@config/uploads'
 import path from 'path';
 import  fs  from 'fs';

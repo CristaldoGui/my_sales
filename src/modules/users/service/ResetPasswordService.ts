@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
-import { userTokensRepositories } from '../database/UserToeknsRepositories';
-import { userRepositories } from '../database/UsersRepositories';
+import { userTokensRepositories } from '../database/repositories/UserToeknsRepositories';
+import { userRepositories } from '../database/repositories/UsersRepositories';
 import { addMinutes, isAfter } from 'date-fns';
 import { hash } from 'crypto';
 
