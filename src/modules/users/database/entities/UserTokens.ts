@@ -9,7 +9,7 @@ import {
 
 @Entity('user_tokens')
 export default class UserTokens {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('increment')
   id: number;
 
   @Column()
