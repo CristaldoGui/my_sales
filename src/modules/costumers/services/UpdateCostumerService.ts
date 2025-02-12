@@ -19,7 +19,7 @@ export default class UpdateCostumerService {
     if (email) {
       const emailExists = await costumerRepositories.findByEmail(email);
 
-      if (emailExists) throw new AppError('This email already axists');
+      if (emailExists) throw new AppError('This email already axists', 409);
 
       costumer.email = email;
 
