@@ -3,13 +3,13 @@ import Costumers from '../database/entities/Costumer';
 import { costumerRepositories } from '../database/repositories/CostumerRepositories';
 import { userRepositories } from '@modules/users/database/repositories/UsersRepositories';
 
-interface ICreateCostumer {
+interface ICreateCostumerService {
   name: string;
   email: string;
 }
 
 export default class CreateCostumerService {
-  async execute({ name, email }: ICreateCostumer): Promise<Costumers> {
+  async execute({ name, email }: ICreateCostumerService): Promise<Costumers> {
     const emailExists = await costumerRepositories.findByEmail(email);
 
     if (emailExists) throw new AppError('This email already used', 400);
