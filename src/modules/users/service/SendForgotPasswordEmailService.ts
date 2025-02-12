@@ -18,7 +18,7 @@ export default class SendForgotPasswordEmailService {
     sendEmail({
       to: email,
       subject: 'Forgot password',
-      body: `<!DOCTYPE html>
+      body: `
 <html>
 <head>
     <meta charset="UTF-8">

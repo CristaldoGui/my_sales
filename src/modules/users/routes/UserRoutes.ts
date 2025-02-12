@@ -2,7 +2,7 @@ import { Router } from 'express';
 import UserControllers from '../controller/UserControllers';
 import { createUserSchema } from '../schema/UserSchema';
 import AuthMiddleware from '@shared/middlewares/AuthMiddleware';
-import ShowUserProfileController from '../controller/ShowUserProfileControllers';
+import ShowUserProfileController from '../controller/UserProfileControllers';
 
 const userRouter = Router();
 const userControllers = new UserControllers();
@@ -13,7 +13,7 @@ userRouter.post('/', createUserSchema, userControllers.create);
 userRouter.get(
   '/profile',
   AuthMiddleware.execute,
-  showUserProfileControllers.get,
+  showUserProfileControllers.show,
 );
 
 export default userRouter;
