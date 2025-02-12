@@ -17,8 +17,8 @@ AppDataSource.initialize()
     app.use(express.json());
 
     app.use(routes);
-    app.use(errors());
-    app.use(ErrorHandleMiddleware.handleError);
+    //app.use(errors());
+    //app.use(ErrorHandleMiddleware.handleError);
 
     console.log('Data Source has been initialized!');
 

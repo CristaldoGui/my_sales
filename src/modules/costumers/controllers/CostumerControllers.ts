@@ -29,7 +29,7 @@ export default class CostumerControllers {
     const id = Number(req.params.id);
 
     const updateCostumerService = new UpdateCostumerService();
-    const costumer = updateCostumerService.execute({ id, name, email });
+    const costumer = await updateCostumerService.execute({ id, name, email });
 
     res.json(costumer);
   }
@@ -38,8 +38,8 @@ export default class CostumerControllers {
     const id = Number(req.params.id);
 
     const showCostumerService = new ShowCostumerService();
-    const costumer = showCostumerService.execute({ id });
-
+    const costumer = await showCostumerService.execute({ id });
+    console.log(costumer)
     res.json(costumer);
   }
 

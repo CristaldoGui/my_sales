@@ -1,7 +1,7 @@
-import { idProductsSchema } from '@modules/products/schema/ProductSchemas';
+
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class Migrations1739381310058 implements MigrationInterface {
+export class CreateCostumers1739381310058 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({

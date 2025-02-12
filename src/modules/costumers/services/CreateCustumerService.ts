@@ -14,9 +14,9 @@ export default class CreateCostumerService {
 
     if (emailExists) throw new AppError('This email already used', 400);
 
-    const newCostumer = userRepositories.create({ name, email });
+    const newCostumer = costumerRepositories.create({ name, email });
 
-    await userRepositories.save(newCostumer);
+    await costumerRepositories.save(newCostumer);
 
     return newCostumer;
   }
