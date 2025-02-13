@@ -3,6 +3,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -14,6 +15,7 @@ export class Orders {
   id: number;
 
   @ManyToMany(() => Costumer)
+  @JoinColumn({ name: 'costumer_id' })
   costumer: Costumer;
 
   @CreateDateColumn()
