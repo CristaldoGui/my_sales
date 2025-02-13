@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToMany,
   ManyToOne,
   OneToMany,
@@ -11,15 +12,17 @@ import {
 import { Order } from './Order';
 import { Product } from '@modules/products/database/entities/Product';
 
-@Entity('orders-products')
+@Entity('orders_products')
 export class OrdersProducts {
   @PrimaryGeneratedColumn('identity')
   id: number;
 
   @ManyToOne(() => Order, order => order.orders_products)
+  @JoinColumn({ name: 'order_id' })
   order: Order;
 
   @ManyToOne(() => Product, product => product.orders_products)
+  @JoinColumn({ name: 'product_id' })
   product: Product;
 
   @Column({ type: 'decimal' })
