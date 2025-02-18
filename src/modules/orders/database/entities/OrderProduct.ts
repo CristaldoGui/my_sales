@@ -13,15 +13,15 @@ import { Order } from './Order';
 import { Product } from '@modules/products/database/entities/Product';
 
 @Entity('orders_products')
-export class OrdersProducts {
-  @PrimaryGeneratedColumn('identity')
+export class OrderProduct {
+  @PrimaryGeneratedColumn('increment')
   id: number;
 
   @ManyToOne(() => Order, order => order.orders_products)
   @JoinColumn({ name: 'order_id' })
   order: Order;
 
-  @ManyToOne(() => Product, product => product.orders_products)
+  @ManyToOne(() => Product, product => product.order_product)
   @JoinColumn({ name: 'product_id' })
   product: Product;
 

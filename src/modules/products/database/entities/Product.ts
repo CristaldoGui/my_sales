@@ -1,4 +1,4 @@
-import { OrdersProducts } from '@modules/orders/database/entity/OrdersProducts';
+import { OrderProduct } from '@modules/orders/database/entities/OrderProduct';
 import {
   Column,
   CreateDateColumn,
@@ -11,10 +11,10 @@ import {
 @Entity('products')
 export class Product {
   @PrimaryGeneratedColumn('increment')
-  id: string;
+  id: number;
 
-  @OneToMany(() => OrdersProducts, ordersProducts => ordersProducts.product)
-  orders_products: OrdersProducts[];
+  @OneToMany(() => OrderProduct, orderProduct => orderProduct.product)
+  order_product: OrderProduct[];
 
   @Column({ type: 'text' })
   name: string;
